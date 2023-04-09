@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lone wolf...</title>
+</head>
+<body>
+    
+    <div id="wolf-animated">
+        <img src="/scenery/bg.svg" />
+        <img class="still-clouds" src="/scenery/clouds.svg" />
+        <img class="moving-clouds" src="/scenery/clouds.svg" />
+        <img src="/scenery/wolf.svg" style="z-index:100;" />
+    </div>
+    <style>
+        #wolf-animated {
+            display: grid;
+            place-content: center;
+            width:300px;
+            height:300px;
+
+            overflow: hidden;
+
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        #wolf-animated img {
+
+            grid-area: 1/1;
+        }
+
+        #wolf-animated .still-clouds {
+            transform: translateY(50px);
+            opacity: .2;
+        }
+        #wolf-animated .moving-clouds {
+            animation : moving-clouds infinite linear 5s;
+        }
+
+        @keyframes moving-clouds {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            35% {
+                opacity: .5;
+            }
+
+            65% {
+                opacity: .5;
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+        }
+    </style>
+</body>
+</html>
